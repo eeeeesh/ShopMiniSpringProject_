@@ -34,8 +34,10 @@
 </script>
 
 <form action="login" method="post">
-아이디:<input type="text" name="userid"><br>
-비밀번호:<input type="text" name="passwd"><br>
+아이디:&nbsp;<input type="text" name="userid"><br>
+비밀번호:&nbsp;<input type="text" name="passwd"><br>
 <input type="submit" value="로그인">
 <input type="reset" value="취소">
 </form>
+<a href="idForm">아이디 찾기</a>&nbsp;
+<a href="pwForm">비밀번호 찾기</a>

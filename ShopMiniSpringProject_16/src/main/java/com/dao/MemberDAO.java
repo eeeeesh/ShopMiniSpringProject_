@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -31,5 +32,10 @@ public class MemberDAO {
 
 	public void memberUpdate(MemberDTO m) throws Exception {
 		template.update("MemberMapper.memberUpdate", m);
+	}
+
+	public String findID(HashMap<String, String> idInfo) {
+		String id= template.selectOne("MemberMapper.findID", idInfo);
+		return id;
 	}
 }

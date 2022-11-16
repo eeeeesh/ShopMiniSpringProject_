@@ -40,4 +40,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		email2=#{email2}
 		where userid = #{userid}
 	</update>
+	<select id="findID" parameterType="hashmap" resultType="string">
+		select userid
+		from member
+		where username= #{userName} and email1= #{emailAdress1} 
+		and email2= #{emailAdress2}
+	</select>
+	
 </mapper>
