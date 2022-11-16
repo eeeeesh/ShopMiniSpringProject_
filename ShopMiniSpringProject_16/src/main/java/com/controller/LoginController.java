@@ -20,10 +20,10 @@ public class LoginController {
 	@Autowired
 	MemberService service;
 	//에러처리
-	@ExceptionHandler({Exception.class})
-	public String errorPage() {
-		return "error/error";
-	}
+//	@ExceptionHandler({Exception.class})
+//	public String errorPage() {
+//		return "error/error";
+//	}
 	@RequestMapping(value = "/login")
 	public String login(@RequestParam Map<String, String> map, Model model, HttpSession session) throws Exception {
 		MemberDTO dto =service.login(map);

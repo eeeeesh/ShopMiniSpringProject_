@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,10 @@ public class MemberService {
 
 	public void memberUpdate(MemberDTO m) throws Exception {
 		dao.memberUpdate(m);
+	}
+
+	public String findID(HashMap<String, String> idInfo) {
+		return dao.findID(idInfo);
 	}
 
 }

@@ -1,16 +1,16 @@
 package com.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.MemberDTO;
 import com.service.MemberService;
@@ -20,10 +20,10 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	//에러처리
-	@ExceptionHandler({Exception.class})
-	public String errorPage() {
-		return "error/error";
-	}
+//	@ExceptionHandler({Exception.class})
+//	public String errorPage() {
+//		return "error/error";
+//	}
 	@RequestMapping(value = "/MemberAdd")
 	public String memberAdd(MemberDTO m, Model model) throws Exception {
 		//System.out.println(m);
@@ -68,6 +68,28 @@ public class MemberController {
 		return "redirect:../loginCheck/myPage"; //다시 요청
 		//return "redirect:../myPage"; //servlet-context.xml 주소 요청
 	}
+	@RequestMapping(value = "/findID")
+	public String findID(@RequestParam("userName") String userName, 
+			@RequestParam("emailAdress1") String emailAdress1,
+			@RequestParam("emailAdress2") String emailAdress2, 
+			RedirectAttributes attr) {
+		System.out.println("이름:"+userName);
+		System.out.println("이메일주소1:"+emailAdress1);
+		System.out.println("이메일주소2:"+emailAdress2);
+		HashMap<String, String> idInfo= new HashMap<String, String>();
+		idInfo.put("userName", userName);
+		idInfo.put("emailAdress1", emailAdress1);
+		idInfo.put("emailAdress2", emailAdress2);
+		String id = null;
+		id =service.findID(idInfo);
+		if (id==null) {
+			id="id 없음";
+		}
+		System.out.println("id:"+id);
+		attr.addFlashAttribute("idInfo", id);
+		return "redirect:findId";
+	}
+	 
 
 
 }

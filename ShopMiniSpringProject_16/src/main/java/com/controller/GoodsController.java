@@ -30,10 +30,10 @@ public class GoodsController {
 	@Autowired
 	MemberService mService;
 	//에러처리
-	@ExceptionHandler({Exception.class})
-	public String errorPage() {
-		return "error/error";
-	}
+//	@ExceptionHandler({Exception.class})
+//	public String errorPage() {
+//		return "error/error";
+//	}
 	@RequestMapping(value = "/goodsList")
 	public ModelAndView goodsList(@RequestParam("gCategory") String gCategory) throws Exception {//카테고리별 상품목록보기 단 로그인 된 경우
 		//System.out.println(gCategory);

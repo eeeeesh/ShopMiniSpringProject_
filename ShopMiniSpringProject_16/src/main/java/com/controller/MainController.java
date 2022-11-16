@@ -16,10 +16,10 @@ public class MainController {
 	@Autowired
 	GoodsService service;
 	//에러처리
-	@ExceptionHandler({Exception.class})
-	public String errorPage() {
-		return "error/error";
-	}
+//	@ExceptionHandler({Exception.class})
+//	public String errorPage() {
+//		return "error/error";
+//	}
 	@RequestMapping(value = "/") //리스트를 무조건 뿌리기
 	public ModelAndView goodsList() throws Exception {
 		//int result=10/0; //exception발생
