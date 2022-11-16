@@ -38,4 +38,9 @@ public class MemberDAO {
 		String id= template.selectOne("MemberMapper.findID", idInfo);
 		return id;
 	}
+
+	public String findPW(HashMap<String, String> pwInfo) {
+		String pw= template.selectOne("MemberMapper.findPW", pwInfo);
+		return pw;
+	}
 }
