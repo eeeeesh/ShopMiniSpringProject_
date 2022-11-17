@@ -82,12 +82,28 @@ public class MemberController {
 		idInfo.put("emailAdress2", emailAdress2);
 		String id = null;
 		id =service.findID(idInfo);
-		if (id==null) {
-			id="id 없음";
-		}
 		System.out.println("id:"+id);
 		attr.addFlashAttribute("idInfo", id);
 		return "redirect:findId";
+	}
+	@RequestMapping(value = "/findPW")
+	//@ResponseBody
+	public String findPW(@RequestParam("userId") String userId, 
+			@RequestParam("emailAdress1") String emailAdress1, 
+			@RequestParam("emailAdress2") String emailAdress2, 
+			RedirectAttributes attr) {
+		System.out.println("아이디:"+userId);
+		System.out.println("이메일주소1:"+emailAdress1);
+		System.out.println("이메일주소2:"+emailAdress2);
+		HashMap<String, String> pwInfo= new HashMap<String, String>();
+		pwInfo.put("userId", userId);
+		pwInfo.put("emailAdress1", emailAdress1);
+		pwInfo.put("emailAdress2", emailAdress2);
+		String pw = "redirect:findPW";
+		pw =service.findPW(pwInfo);
+		attr.addFlashAttribute("pwInfo", pw);
+		System.out.println("pw:"+pw);
+		return "redirect:findPw";
 	}
 	 
 

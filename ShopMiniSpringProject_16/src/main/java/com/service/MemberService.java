@@ -36,4 +36,8 @@ public class MemberService {
 		return dao.findID(idInfo);
 	}
 
+	public String findPW(HashMap<String, String> pwInfo) {
+		return dao.findPW(pwInfo);
+	}
+
 }

@@ -46,5 +46,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where username= #{userName} and email1= #{emailAdress1} 
 		and email2= #{emailAdress2}
 	</select>
+	<select id="findPW" parameterType="hashmap" resultType="string">
+		select passwd
+		from member
+		where userid= #{userId} and email1= #{emailAdress1} 
+		and email2= #{emailAdress2}
+	</select>
 	
 </mapper>
