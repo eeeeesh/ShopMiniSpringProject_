@@ -82,14 +82,12 @@ public class MemberController {
 		idInfo.put("emailAdress2", emailAdress2);
 		String id = null;
 		id =service.findID(idInfo);
-		if (id==null) {
-			id="id 없음";
-		}
 		System.out.println("id:"+id);
 		attr.addFlashAttribute("idInfo", id);
 		return "redirect:findId";
 	}
 	@RequestMapping(value = "/findPW")
+	//@ResponseBody
 	public String findPW(@RequestParam("userId") String userId, 
 			@RequestParam("emailAdress1") String emailAdress1, 
 			@RequestParam("emailAdress2") String emailAdress2, 
@@ -104,12 +102,8 @@ public class MemberController {
 		String pw = "redirect:findPW";
 		pw =service.findPW(pwInfo);
 		attr.addFlashAttribute("pwInfo", pw);
-		if (pw==null) {
-			pw="pw 없음";
-			attr.addFlashAttribute("pwInfo", pw);
-		}
 		System.out.println("pw:"+pw);
-		return "redirect:findPW";
+		return "redirect:findPw";
 	}
 	 
 

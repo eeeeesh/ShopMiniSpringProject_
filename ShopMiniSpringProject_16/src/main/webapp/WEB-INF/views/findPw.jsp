@@ -11,6 +11,6 @@
 <jsp:include page="common/top.jsp"></jsp:include><br>
 <jsp:include page="common/menu.jsp"></jsp:include>
 <hr>
-<jsp:include page="member/findPW.jsp"></jsp:include>
+<jsp:include page="member/findPw.jsp"></jsp:include>
 </body>
 </html>
